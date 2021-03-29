@@ -1,0 +1,14 @@
+#!/bin/sh
+set -e
+
+# run all runnables in /usr/local/runnables before executing our entrypoint.
+for runnable in /usr/local/runnables/*.sh; do
+    sh $runnable
+done
+
+# first arg is `-f` or `--some-option`
+if [ "${1#-}" != "$1" ]; then
+	set -- php-fpm "$@"
+fi
+
+exec "$@"
