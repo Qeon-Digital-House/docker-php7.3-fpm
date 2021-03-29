@@ -18,6 +18,7 @@ rm -fr composer-setup.php
 
 # don't forget to soft-link composer to composer.phar
 ln -s /usr/local/bin/composer.phar /usr/local/bin/composer
+chmod 755 /usr/local/bin/composer.phar /usr/local/bin/composer
 popd > /dev/null
 
 exit $RET
