@@ -8,5 +8,5 @@ RUN apt-get update \
     && apt-get -y install etcd-client \
     && apt-get -y autoremove \
     && docker-php-ext-install bcmath \
-    && chmod 755 /usr/local/bin/get-composer.sh docker-php-entrypoint \
+    && chmod 755 /usr/local/bin/get-composer.sh /usr/local/bin/docker-php-entrypoint \
     && /usr/local/bin/get-composer.sh
