@@ -9,5 +9,4 @@ RUN apt-get update \
     && apt-get -y autoremove \
     && docker-php-ext-install bcmath \
     && rm -f /usr/local/bin/docker-php-entrypoint \
-    && mkdir /usr/local/runnables \
     && /usr/local/bin/get-composer.sh
