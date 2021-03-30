@@ -22,9 +22,12 @@ with open(filename, "r") as fp:
             continue
 
         temp_key, temp_val = temp.split("=", 1)
-        temp_val = shlex.split(temp_val)
+        temp_val = shlex.quote("".join(shlex.split(temp_val)))
+
+        if "\\" in temp_val:
+            temp_val = temp_val.replace("\\", "\\\\")
 
         if not temp_val:
-            temp_val = [""]
+            temp_val = ""
         print(temp_key)
-        print(temp_val[0])
+        print(temp_val)
