@@ -16,4 +16,4 @@ if [ "$ENV_SIZE" -eq "0" ]; then
 fi
 
 # really fetch the entries from etcd.
-ETCDCTL_API=3 etcdctl -w simple --endpoints "$ETCD_SERVER" get --prefix "$ENV_PREFIX" | while read -r KEY; do read -r VALUE; echo ${KEY##*/}=\"${VALUE}\"; done > "$ENV_PATH"
+ETCDCTL_API=3 etcdctl -w simple --endpoints "$ETCD_SERVER" get --prefix "$ENV_PREFIX" | while read -r KEY; do read -r VALUE; echo ${KEY##*/}=${VALUE}; done > "$ENV_PATH"
