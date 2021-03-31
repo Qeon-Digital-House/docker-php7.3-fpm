@@ -5,7 +5,7 @@ COPY runnables/*.sh /usr/local/runnables/
 
 RUN apt-get update \
     && apt-get -y upgrade \
-    && apt-get -y install etcd-client vim unzip software-properties-common zlib1g-dev libzip-dev libicu-dev \
+    && apt-get -y install etcd-client vim unzip gnupg2 software-properties-common zlib1g-dev libzip-dev libicu-dev \
     && apt-get -y autoremove \
     && docker-php-ext-install bcmath \
     && docker-php-ext-install zip \
