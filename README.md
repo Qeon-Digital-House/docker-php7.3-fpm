@@ -11,9 +11,12 @@ Base package image containing PHP-FPM 7.3 (base), [`composer`][1], and [`etcdctl
 
 ## Usage
 ### Building Image
-To build a base image from this repository, just run:
+To build a base image, pick a version from this repository, then run `docker build`.
+
+For example, if you're about to build PHP 7.3 image, run:
+
 ```
-docker build . -t docker-php7.3-fpm:1.0
+docker build . -f php_fpm-7.3/Dockerfile -t docker-php7.3-fpm:1.0
 ```
 
 If you want to expand this image, e.g. copying all project files, running `composer install`, etc; just build a base image, and create a new `Dockerfile`. `Dockerfile` content should look like this:
