@@ -36,7 +36,7 @@ To run a container with this image or its derivative, you'll need to prepare:
 
 If you're done so, to start a container, you'll need to define these environment variables:
 
-- `USE_ETCD`: Enable fetching environment variables from `etcd` server.
+- `USE_ETCD`: Set this environment variable to enable fetching environment variables from `etcd` server.
 - `ETCD_SERVER`: URL to `etcd` client endpoint, e.g. `http://192.168.0.22:2379`.
 - `ENV_PATH`: Full absolute path to env file, e.g. `/app/.env`.
 - `ENV_PREFIX`: `etcd` key prefix for env variables, e.g. `/com/qeon/www/envs`.
@@ -48,6 +48,7 @@ docker run \
     -d \
     --rm \
     -p 9000:9000 \
+    --env "USE_ETCD=yes" \
     --env "ETCD_SERVER=http://192.168.0.22:2379" \
     --env "ENV_PATH=/app/.env" \
     --env "ENV_PREFIX=/com/qeon/www/envs" \
