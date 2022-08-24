@@ -34,9 +34,10 @@ To run a container with this image or its derivative, you'll need to prepare:
 1. Project env's key prefix, and
 1. Project's assumed env file location.
 
-If you're done so, to start a container, you'll need to define 3 environment variables:
+If you're done so, to start a container, you'll need to define these environment variables:
 
-- `ETCD_SERVER`: URL to `etcd` client endpoint, e.g. `http://192.168.0.22:2379`
+- `USE_ETCD`: Enable fetching environment variables from `etcd` server.
+- `ETCD_SERVER`: URL to `etcd` client endpoint, e.g. `http://192.168.0.22:2379`.
 - `ENV_PATH`: Full absolute path to env file, e.g. `/app/.env`.
 - `ENV_PREFIX`: `etcd` key prefix for env variables, e.g. `/com/qeon/www/envs`.
 
