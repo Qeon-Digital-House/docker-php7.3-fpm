@@ -3,6 +3,11 @@
 # fetch all required environments and put it to working directory
 # requires ETCD_SERVER, ENV_PATH, ENV_PREFIX
 
+if [ -z "$USE_ETCD" ]; then
+	echo "Skipping getting env data from etcd."
+	exit 0;
+fi
+
 [ -z "$ETCD_SERVER" ] && { >&2 echo "No etcd endpoint specified. Set etcd endpoints with ETCD_SERVER environment variable."; exit 1; };
 [ -z "$ENV_PATH" ] && { >&2 echo "No env file path set. Set env file path with ENV_PATH environment variable."; exit 1; };
 [ -z "$ENV_PREFIX" ] && { >&2 echo "No env prefix set. Set env prefix path with ENV_PREFIX environment variable."; exit 1; };
