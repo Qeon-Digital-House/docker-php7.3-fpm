@@ -30,7 +30,7 @@ jobs:
           PHP_VERSION: ${{ matrix.version }}
           RELEASE: ${{ github.ref_name }}
         run: |
-          IMAGE_BASENAME=$(echo "ghcr.io/${{ secrets.GHCR_ACTOR }}/laravel-boilerplate" | tr '[A-Z]' '[a-z]')
+          IMAGE_BASENAME=$(echo "ghcr.io/${{ secrets.GHCR_ACTOR }}/php-boilerplate" | tr '[A-Z]' '[a-z]')
           docker build . \
             --file php_fpm-${PHP_VERSION}/Dockerfile \
             --label "org.opencontainers.image.source=https://github.com/${{ secrets.GHCR_ACTOR }}/docker-php7.3-fpm" \
@@ -45,6 +45,6 @@ jobs:
           PHP_VERSION: ${{ matrix.version }}
           RELEASE: ${{ github.ref_name }}
         run: |
-          IMAGE_BASENAME=$(echo "ghcr.io/${{ secrets.GHCR_ACTOR }}/laravel-boilerplate" | tr '[A-Z]' '[a-z]')
+          IMAGE_BASENAME=$(echo "ghcr.io/${{ secrets.GHCR_ACTOR }}/php-boilerplate" | tr '[A-Z]' '[a-z]')
           docker push ${IMAGE_BASENAME}:php-${PHP_VERSION}
           docker push ${IMAGE_BASENAME}:${RELEASE}_php-${PHP_VERSION}
