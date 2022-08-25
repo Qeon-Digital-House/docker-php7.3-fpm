@@ -1,0 +1,52 @@
+---
+name: "Build and Publish Images on Release"
+
+on:
+  release:
+    types:
+      - published
+
+jobs:
+  generator:
+    strategy:
+      fail-fast: true
+      matrix:
+        version:
+          - "7.3"
+          - "7.4"
+          - "8.0"
+          - "8.1"
+
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: main
+
+      - name: Login to Github Container Registry
+        run: |
+          echo "${{ secrets.GHCR_TOKEN }}" | docker login ghcr.io -u ${{ secrets.GHCR_USERNAME }} --password-stdin
+
+      - name: Build Image
+        env:
+          PHP_VERSION: ${{ matrix.version }}
+          RELEASE: ${{ github.ref_name }}
+        run: |
+          IMAGE_BASENAME=$(echo "ghcr.io/${{ secrets.GHCR_ACTOR }}/docker-php7.3-fpm" | tr '[A-Z]' '[a-z]')
+          docker build . \
+            --file php_fpm-${PHP_VERSION}/Dockerfile \
+            --label "org.opencontainers.image.source=https://github.com/${{ secrets.GHCR_ACTOR }}/docker-php7.3-fpm" \
+            --label "org.opencontainers.image.url=https://github.com/${{ secrets.GHCR_ACTOR }}/docker-php7.3-fpm" \
+            --label "org.opencontainers.image.created=$(date -Iseconds)" \
+            --label "org.opencontainers.image.version=${RELEASE}" \
+            --tag ${IMAGE_BASENAME}:php-${PHP_VERSION} \
+            --tag ${IMAGE_BASENAME}:${RELEASE}_php-${PHP_VERSION}
+
+      - name: Push new Image to Github Container Registry
+        env:
+          PHP_VERSION: ${{ matrix.version }}
+          RELEASE: ${{ github.ref_name }}
+        run: |
+          IMAGE_BASENAME=$(echo "ghcr.io/${{ secrets.GHCR_ACTOR }}/docker-php7.3-fpm" | tr '[A-Z]' '[a-z]')
+          docker push ${IMAGE_BASENAME}:php-${PHP_VERSION}
+          docker push ${IMAGE_BASENAME}:${RELEASE}_php-${PHP_VERSION}
