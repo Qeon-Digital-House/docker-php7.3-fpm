@@ -1,5 +1,8 @@
 # docker-php7.3-fpm
-Base PHP-FPM 7.3 + composer + etcdctl image package
+Base PHP-FPM 7.3 + composer + etcdctl image package.
+
+## Note
+Note that the repository name does not represent current condition of this repository. Right now you can build the image using different versions of PHP-FPM.
 
 ## About
 Base package image containing PHP-FPM 7.3 (base), [`composer`][1], and [`etcdctl`][2].
