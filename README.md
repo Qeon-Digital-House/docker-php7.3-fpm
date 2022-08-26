@@ -54,7 +54,7 @@ To use this feature, you'll need to:
 
         Note that if you're using Github organization, you'll probably want to create an account to act as _machine user_. See [this page][4] for more information.
 
-        Also, if the Github account is invited as an _outside collaborator_, make sure that the account have at least __Write__ role on this repository.
+        Also, _outside collaborator_ cannot publish packages or containers in an organization. Add the _machine user_ as org member instead of _outside collaborator_.
 
     - `GHCR_ACTOR`
 
