@@ -9,9 +9,9 @@ RUN echo "deb http://deb.debian.org/debian buster-backports main" > /etc/apt/sou
     && apt-get update \
     && apt-get -y dist-upgrade \
     && apt-get -y install etcd-client vim curl unzip gnupg2 software-properties-common \
-                          zlib1g-dev libzip-dev libicu-dev libbz2-dev libpng-dev \
-                          libwebp-dev libjpeg-dev libfreetype6-dev libgmp-dev \
-                          libxslt1-dev liblzf-dev libzstd-dev mariadb-client \
+                          ncat wait-for-it zlib1g-dev libzip-dev libicu-dev libbz2-dev \
+                          libpng-dev libwebp-dev libjpeg-dev libfreetype6-dev \
+                          libgmp-dev libxslt1-dev liblzf-dev libzstd-dev mariadb-client \
     && apt-get -y autoremove \
     && docker-php-ext-configure gd --with-webp-dir --with-jpeg-dir --with-freetype-dir \
     && docker-php-ext-install bcmath calendar bz2 exif \
