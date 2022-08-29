@@ -13,6 +13,8 @@ RUN echo "deb http://deb.debian.org/debian buster-backports main" > /etc/apt/sou
                           libpng-dev libwebp-dev libjpeg-dev libfreetype6-dev \
                           libgmp-dev libxslt1-dev liblzf-dev libzstd-dev mariadb-client \
     && apt-get -y autoremove \
+    && apt-get autoclean \
+    && apt-get clean \
     && docker-php-ext-configure gd --with-webp-dir --with-jpeg-dir --with-freetype-dir \
     && docker-php-ext-install bcmath calendar bz2 exif \
                               gd gettext gmp intl pcntl \

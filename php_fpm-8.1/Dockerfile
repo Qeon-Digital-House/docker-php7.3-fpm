@@ -13,6 +13,8 @@ RUN apt-get update \
                           libjpeg-dev libfreetype-dev libgmp-dev libxslt1-dev \
                           liblzf-dev libzstd-dev \
     && apt-get -y autoremove \
+    && apt-get autoclean \
+    && apt-get clean \
     && docker-php-ext-configure gd --with-webp --with-jpeg --with-freetype \
     && docker-php-ext-install bcmath calendar bz2 exif \
                               gd gettext gmp intl pcntl \
