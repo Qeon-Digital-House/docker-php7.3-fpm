@@ -8,10 +8,10 @@ COPY runnables/*.sh /usr/local/runnables/
 RUN apt-get update \
     && apt-get -y dist-upgrade \
     && apt-get -y install etcd-client vim curl unzip gnupg2 mariadb-client \
-                          software-properties-common zlib1g-dev libzip-dev \
-                          libicu-dev libbz2-dev libpng-dev libwebp-dev \
-                          libjpeg-dev libfreetype-dev libgmp-dev \
-                          libxslt1-dev liblzf-dev libzstd-dev \
+                          ncat wait-for-it software-properties-common zlib1g-dev \
+                          libzip-dev libicu-dev libbz2-dev libpng-dev libwebp-dev \
+                          libjpeg-dev libfreetype-dev libgmp-dev libxslt1-dev \
+                          liblzf-dev libzstd-dev \
     && apt-get -y autoremove \
     && docker-php-ext-configure gd --with-webp --with-jpeg --with-freetype \
     && docker-php-ext-install bcmath calendar bz2 exif \
