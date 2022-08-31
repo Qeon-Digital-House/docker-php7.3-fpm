@@ -4,6 +4,11 @@ set -e
 # run all runnables in /usr/local/runnables before executing our entrypoint.
 for runnable in /usr/local/runnables/*.sh; do
     /bin/bash $runnable
+
+    if [ "$?" -ne "0" ]; then
+        >&2 echo "[!] FATAL: Some of the required scripts failed to run."
+        exit 1
+    fi
 done
 
 # first arg is `-f` or `--some-option`
