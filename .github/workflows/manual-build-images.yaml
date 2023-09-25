@@ -50,15 +50,19 @@ jobs:
           PHP_VERSION: ${{ matrix.version }}
           RELEASE: ${{ github.ref_name }}
         run: |
-          IMAGE_BASENAME=$(echo "ghcr.io/${{ secrets.GHCR_ACTOR }}/php-boilerplate" | tr '[A-Z]' '[a-z]')
-          docker build . \
-            --file php_fpm-${PHP_VERSION}/Dockerfile.swoole \
-            --label "org.opencontainers.image.source=https://github.com/${{ secrets.GHCR_ACTOR }}/docker-php7.3-fpm" \
-            --label "org.opencontainers.image.url=https://github.com/${{ secrets.GHCR_ACTOR }}/docker-php7.3-fpm" \
-            --label "org.opencontainers.image.created=$(date -Iseconds)" \
-            --label "org.opencontainers.image.version=swoole-${RELEASE}" \
-            --tag ${IMAGE_BASENAME}:swoole-${PHP_VERSION} \
-            --tag ${IMAGE_BASENAME}:${RELEASE}_swoole-${PHP_VERSION}
+          if [ -f "php_fpm-${PHP_VERSION}/Dockerfile.swoole" ]; then
+            IMAGE_BASENAME=$(echo "ghcr.io/${{ secrets.GHCR_ACTOR }}/php-boilerplate" | tr '[A-Z]' '[a-z]')
+            docker build . \
+              --file php_fpm-${PHP_VERSION}/Dockerfile.swoole \
+              --label "org.opencontainers.image.source=https://github.com/${{ secrets.GHCR_ACTOR }}/docker-php7.3-fpm" \
+              --label "org.opencontainers.image.url=https://github.com/${{ secrets.GHCR_ACTOR }}/docker-php7.3-fpm" \
+              --label "org.opencontainers.image.created=$(date -Iseconds)" \
+              --label "org.opencontainers.image.version=swoole-${RELEASE}" \
+              --tag ${IMAGE_BASENAME}:swoole-${PHP_VERSION} \
+              --tag ${IMAGE_BASENAME}:${RELEASE}_swoole-${PHP_VERSION}
+          else
+            echo "Swoole requires PHP version > 8.0.0."
+          fi
 
       - name: Push new Image to Github Container Registry
         env:
