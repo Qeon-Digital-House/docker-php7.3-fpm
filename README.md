@@ -7,6 +7,53 @@ Note that the repository name does not represent current condition of this repos
 ## About
 Base package image containing PHP-FPM 7.3 (base), [`composer`][1], and [`etcdctl`][2].
 
+## Versions
+Currently, this repository will build four PHP-FPM versions:
+- `php-boilerplate:php-7.3`, based on `php:7.3-fpm`,
+- `php-boilerplate:php-7.4`, based on `php:7.4-fpm`,
+- `php-boilerplate:php-8.0`, based on `php:8.0-fpm`, and
+- `php-boilerplate:php-8.1`, based on `php:8.1-fpm`.
+
+## Packages and Modules
+These debian packages are available on every images:
+
+| package name     | provides                    |
+|------------------|-----------------------------|
+| `etcd-client`    | etcd CLI client             |
+| `vim`            | vim editor                  |
+| `curl`           | cURL HTTP Client            |
+| `unzip`          | Unzip ZIP archive extractor |
+| `gnupg2`         | GNU Privacy Guard           |
+| `git`            | Git distributed VCS         |
+| `ncat`           | Nmap's Netcat               |
+| `mariadb-client` | MySQL/MariaDB CLI client    |
+
+These PHP/PECL modules are also enabled on every images:
+
+| module name | PECL/PHP module | provides                         |
+|-------------|-----------------|----------|
+| `bcmath`    | PHP             | BCMath arbitrary precision <br>mathematics |
+| `calendar`  | PHP             | Calendar formats conversion      |
+| `bz2`       | PHP             | BZip2 compressed files           |
+| `exif`      | PHP             | Exif reader                      |
+| `gd`        | PHP             | GD image processing              |
+| `gettext`   | PHP             | i18n for PHP applications        |
+| `gmp`       | PHP             | GNU Multiple Precision support   |
+| `intl`      | PHP             | ICU wrapper to perform <br>various locale-aware operations |
+| `pcntl`     | PHP             | Unix process management          |
+| `pdo_mysql` | PHP             | PDO MySQL support                |
+| `shmop`     | PHP             | Shared memory operations support |
+| `sockets`   | PHP             | Low-level interface to the BSD <br>socket functions |
+| `sysvmsg`   | PHP             | SystemV messages support         |
+| `sysvsem`   | PHP             | SystemV semaphore support        |
+| `sysvshm`   | PHP             | SystemV shared memory support    |
+| `xsl`       | PHP             | XSL transformation support       |
+| `opcache`   | PHP             | OPCache support                  |
+| `zip`       | PHP             | Zip compressed files             |
+| `igbinary`  | PECL            | igbinary serializer support      |
+| `redis`     | PECL            | Redis interface support          |
+
+
 ## Requirement
 - Linux/Unix-based server
 - Docker host
