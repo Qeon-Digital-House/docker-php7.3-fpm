@@ -17,16 +17,17 @@ Currently, this repository will build four PHP-FPM versions:
 ## Packages and Modules
 These debian packages are available on every images:
 
-| package name     | provides                    |
-|------------------|-----------------------------|
-| `etcd-client`    | etcd CLI client             |
-| `vim`            | vim editor                  |
-| `curl`           | cURL HTTP Client            |
-| `unzip`          | Unzip ZIP archive extractor |
-| `gnupg2`         | GNU Privacy Guard           |
-| `git`            | Git distributed VCS         |
-| `ncat`           | Nmap's Netcat               |
-| `mariadb-client` | MySQL/MariaDB CLI client    |
+| package name        | provides                    |
+|---------------------|-----------------------------|
+| `etcd-client`       | etcd CLI client             |
+| `vim`               | vim editor                  |
+| `curl`              | cURL HTTP Client            |
+| `unzip`             | Unzip ZIP archive extractor |
+| `gnupg2`            | GNU Privacy Guard           |
+| `git`               | Git distributed VCS         |
+| `ncat`              | Nmap's Netcat               |
+| `mariadb-client`    | MySQL/MariaDB CLI client    |
+| `postgresql-client` | PostgreSQL CLI client    |
 
 These PHP/PECL modules are also enabled on every images:
 
@@ -42,6 +43,7 @@ These PHP/PECL modules are also enabled on every images:
 | `intl`      | PHP             | ICU wrapper to perform <br>various locale-aware operations |
 | `pcntl`     | PHP             | Unix process management          |
 | `pdo_mysql` | PHP             | PDO MySQL support                |
+| `pdo_pgsql` | PHP             | PDO PostgreSQL support           |
 | `shmop`     | PHP             | Shared memory operations support |
 | `sockets`   | PHP             | Low-level interface to the BSD <br>socket functions |
 | `sysvmsg`   | PHP             | SystemV messages support         |
