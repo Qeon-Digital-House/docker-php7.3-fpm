@@ -43,6 +43,7 @@ jobs:
             --label "org.opencontainers.image.url=https://github.com/${{ secrets.GHCR_ACTOR }}/docker-php7.3-fpm" \
             --label "org.opencontainers.image.created=$(date -Iseconds)" \
             --label "org.opencontainers.image.version=${RELEASE}" \
+            --tag base-swoole:php-${PHP_VERSION} \
             --tag ${IMAGE_BASENAME}:php-${PHP_VERSION} \
             --tag ${IMAGE_BASENAME}:${RELEASE}_php-${PHP_VERSION}
 
