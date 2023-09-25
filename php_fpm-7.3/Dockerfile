@@ -11,7 +11,7 @@ RUN echo "deb http://deb.debian.org/debian buster-backports main" > /etc/apt/sou
     && apt-get -y install etcd-client vim curl unzip gnupg2 software-properties-common git \
                           ncat wait-for-it zlib1g-dev libzip-dev libicu-dev libbz2-dev \
                           libpng-dev libwebp-dev libjpeg-dev libfreetype6-dev \
-                          libgmp-dev libxslt1-dev liblzf-dev libzstd-dev mariadb-client \
+                          libgmp-dev libxslt1-dev liblzf-dev libzstd-dev mariadb-client postgresql-client \
     && apt-get -y autoremove \
     && apt-get autoclean \
     && apt-get clean \

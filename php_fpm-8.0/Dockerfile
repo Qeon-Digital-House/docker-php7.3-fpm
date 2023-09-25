@@ -11,7 +11,7 @@ RUN apt-get update \
                           ncat wait-for-it software-properties-common zlib1g-dev \
                           libzip-dev libicu-dev libbz2-dev libpng-dev libwebp-dev \
                           libjpeg-dev libfreetype-dev libgmp-dev libxslt1-dev \
-                          liblzf-dev libzstd-dev \
+                          liblzf-dev libzstd-dev postgresql-client \
     && apt-get -y autoremove \
     && apt-get autoclean \
     && apt-get clean \

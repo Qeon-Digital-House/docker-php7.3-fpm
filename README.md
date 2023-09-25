@@ -17,16 +17,17 @@ Currently, this repository will build four PHP-FPM versions:
 ## Packages and Modules
 These debian packages are available on every images:
 
-| package name     | provides                    |
-|------------------|-----------------------------|
-| `etcd-client`    | etcd CLI client             |
-| `vim`            | vim editor                  |
-| `curl`           | cURL HTTP Client            |
-| `unzip`          | Unzip ZIP archive extractor |
-| `gnupg2`         | GNU Privacy Guard           |
-| `git`            | Git distributed VCS         |
-| `ncat`           | Nmap's Netcat               |
-| `mariadb-client` | MySQL/MariaDB CLI client    |
+| package name        | provides                    |
+|---------------------|-----------------------------|
+| `etcd-client`       | etcd CLI client             |
+| `vim`               | vim editor                  |
+| `curl`              | cURL HTTP Client            |
+| `unzip`             | Unzip ZIP archive extractor |
+| `gnupg2`            | GNU Privacy Guard           |
+| `git`               | Git distributed VCS         |
+| `ncat`              | Nmap's Netcat               |
+| `mariadb-client`    | MySQL/MariaDB CLI client    |
+| `postgresql-client` | PostgreSQL CLI client    |
 
 These PHP/PECL modules are also enabled on every images:
 
