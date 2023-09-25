@@ -10,7 +10,7 @@ RUN echo "deb http://deb.debian.org/debian buster-backports main" > /etc/apt/sou
     && apt-get -y dist-upgrade \
     && apt-get -y install etcd-client vim curl unzip gnupg2 software-properties-common git \
                           ncat wait-for-it zlib1g-dev libzip-dev libicu-dev libbz2-dev \
-                          libpng-dev libwebp-dev libjpeg-dev libfreetype6-dev \
+                          libpng-dev libwebp-dev libjpeg-dev libfreetype6-dev libpq-dev \
                           libgmp-dev libxslt1-dev liblzf-dev libzstd-dev mariadb-client postgresql-client \
     && apt-get -y autoremove \
     && apt-get autoclean \
@@ -20,14 +20,14 @@ RUN echo "deb http://deb.debian.org/debian buster-backports main" > /etc/apt/sou
                               gd gettext gmp intl pcntl \
                               pdo_mysql shmop sockets \
                               sysvmsg sysvsem sysvshm \
-                              xsl opcache zip \
+                              xsl opcache zip pdo_pgsql \
     && pecl install igbinary
 
 RUN yes | pecl install redis
 
 RUN docker-php-ext-enable bcmath calendar bz2 exif \
                           gd gettext gmp intl pcntl \
-                          pdo_mysql shmop sockets \
+                          pdo_mysql shmop sockets pdo_pgsql \
                           sysvmsg sysvsem sysvshm \
                           xsl opcache zip igbinary redis \
     && mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini" \

@@ -43,6 +43,7 @@ These PHP/PECL modules are also enabled on every images:
 | `intl`      | PHP             | ICU wrapper to perform <br>various locale-aware operations |
 | `pcntl`     | PHP             | Unix process management          |
 | `pdo_mysql` | PHP             | PDO MySQL support                |
+| `pdo_pgsql` | PHP             | PDO PostgreSQL support           |
 | `shmop`     | PHP             | Shared memory operations support |
 | `sockets`   | PHP             | Low-level interface to the BSD <br>socket functions |
 | `sysvmsg`   | PHP             | SystemV messages support         |
