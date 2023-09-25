@@ -31,7 +31,7 @@ RUN docker-php-ext-enable bcmath calendar bz2 exif \
                           gd gettext gmp intl pcntl \
                           pdo_mysql shmop sockets pdo_pgsql \
                           sysvmsg sysvsem sysvshm \
-                          xsl opcache zip igbinary redis \
+                          xsl opcache zip igbinary msgpack redis \
     && mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini" \
     && chmod 755 /usr/local/bin/get-composer.sh /usr/local/bin/docker-php-entrypoint \
     && /usr/local/bin/get-composer.sh \
