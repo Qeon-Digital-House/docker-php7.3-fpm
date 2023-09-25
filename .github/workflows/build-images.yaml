@@ -75,5 +75,7 @@ jobs:
           IMAGE_BASENAME=$(echo "ghcr.io/${{ secrets.GHCR_ACTOR }}/php-boilerplate" | tr '[A-Z]' '[a-z]')
           docker push ${IMAGE_BASENAME}:php-${PHP_VERSION}
           docker push ${IMAGE_BASENAME}:${RELEASE}_php-${PHP_VERSION}
-          docker push ${IMAGE_BASENAME}:swoole-${PHP_VERSION}
-          docker push ${IMAGE_BASENAME}:${RELEASE}_swoole-${PHP_VERSION}
+          if [ -f "php_fpm-${PHP_VERSION}/Dockerfile.swoole" ]; then
+            docker push ${IMAGE_BASENAME}:swoole-${PHP_VERSION}
+            docker push ${IMAGE_BASENAME}:${RELEASE}_swoole-${PHP_VERSION}
+          fi
