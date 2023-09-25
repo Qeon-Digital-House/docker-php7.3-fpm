@@ -10,7 +10,7 @@ RUN apt-get update \
     && apt-get -y install etcd-client vim curl unzip gnupg2 mariadb-client git \
                           ncat wait-for-it software-properties-common zlib1g-dev \
                           libzip-dev libicu-dev libbz2-dev libpng-dev libwebp-dev \
-                          libjpeg-dev libfreetype-dev libgmp-dev libxslt1-dev \
+                          libjpeg-dev libfreetype-dev libgmp-dev libxslt1-dev liblz4-dev \
                           liblzf-dev libzstd-dev libpq-dev postgresql-client \
     && apt-get -y autoremove \
     && apt-get autoclean \
@@ -21,9 +21,11 @@ RUN apt-get update \
                               pdo_mysql shmop sockets \
                               sysvmsg sysvsem sysvshm \
                               xsl opcache zip pdo_pgsql \
-    && pecl install igbinary
-
-RUN yes | pecl install redis
+    && pecl install igbinary msgpack \
+    && pecl install --configureoptions "with-liblz4='yes' enable-redis='yes' enable-redis-igbinary='yes' \
+                                        enable-redis-msgpack='yes' enable-redis-lzf='yes' enable-redis-zstd='yes' \
+                                        enable-redis-lz4='yes'" \
+       redis
 
 RUN docker-php-ext-enable bcmath calendar bz2 exif \
                           gd gettext gmp intl pcntl \
