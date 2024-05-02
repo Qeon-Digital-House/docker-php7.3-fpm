@@ -5,7 +5,7 @@ WORKDIR /var/www/html
 COPY docker-php-entrypoint get-composer.sh /usr/local/bin/
 COPY runnables/*.sh /usr/local/runnables/
 
-RUN echo "deb http://deb.debian.org/debian buster-backports main" > /etc/apt/sources.list.d/buster-backports.list \
+RUN echo "deb http://archive.debian.org/debian buster-backports main" > /etc/apt/sources.list.d/buster-backports.list \
     && apt-get update \
     && apt-get -y dist-upgrade \
     && apt-get -y install etcd-client vim curl unzip gnupg2 software-properties-common git \
