@@ -10,4 +10,6 @@ RUN apt-get update \
                                         enable-mysqlnd='yes' enable-swoole-curl='yes' enable-swoole-pgsql='yes' \
                                         enable-openssl='yes'" \
        swoole \
-    && docker-php-ext-enable swoole
+    && docker-php-ext-enable swoole \
+    && rm -fr /tmp/pear \
+    && rm -fr /var/cache/apt
