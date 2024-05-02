@@ -43,4 +43,6 @@ RUN docker-php-ext-enable bcmath calendar bz2 exif \
     && mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini" \
     && chmod 755 /usr/local/bin/get-composer.sh /usr/local/bin/docker-php-entrypoint \
     && /usr/local/bin/get-composer.sh \
-    && rm -fr /usr/local/bin/get-composer.sh
+    && rm -fr /usr/local/bin/get-composer.sh \
+    && rm -fr /tmp/pear \
+    && rm -fr /var/cache/apt
