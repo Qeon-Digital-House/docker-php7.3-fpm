@@ -11,8 +11,10 @@ Base package image containing PHP-FPM 7.3 (base), [`composer`][1], and [`etcdctl
 Currently, this repository will build four PHP-FPM versions:
 - `php-boilerplate:php-7.3`, based on `php:7.3-fpm`,
 - `php-boilerplate:php-7.4`, based on `php:7.4-fpm`,
-- `php-boilerplate:php-8.0`, based on `php:8.0-fpm`, and
-- `php-boilerplate:php-8.1`, based on `php:8.1-fpm`.
+- `php-boilerplate:php-8.0`, based on `php:8.0-fpm`,
+- `php-boilerplate:php-8.1`, based on `php:8.1-fpm`,
+- `php-boilerplate:php-8.2`, based on `php:8.2-fpm`, and
+- `php-boilerplate:php-8.3`, based on `php:8.3-fpm`.
 
 ## Packages and Modules
 These debian packages are available on every images:

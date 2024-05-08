@@ -16,6 +16,8 @@ jobs:
           - "7.4"
           - "8.0"
           - "8.1"
+          - "8.2"
+          - "8.3"
 
     runs-on: ubuntu-latest
 
@@ -65,7 +67,6 @@ jobs:
           else
             echo "Swoole requires PHP version > 8.0.0."
           fi
-
 
       - name: Push new Image to Github Container Registry
         env:
