@@ -9,7 +9,7 @@ RUN apt-get update \
     && pecl install --configureoptions="enable-sockets='yes' enable-brotli='yes' enable-swoole='yes' enable-cares='no' \
                                         enable-mysqlnd='yes' enable-swoole-curl='yes' enable-swoole-pgsql='yes' \
                                         enable-openssl='yes'" \
-       swoole \
+       swoole-5.1.6 \
     && docker-php-ext-enable swoole \
     && rm -fr /tmp/pear \
     && rm -fr /var/cache/apt
