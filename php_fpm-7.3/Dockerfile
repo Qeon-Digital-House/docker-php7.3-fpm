@@ -25,7 +25,7 @@ RUN echo "deb http://archive.debian.org/debian buster-backports main" > /etc/apt
     && pecl install --configureoptions "with-liblz4='yes' enable-redis='yes' enable-redis-igbinary='yes' \
                                         enable-redis-msgpack='yes' enable-redis-lzf='yes' enable-redis-zstd='yes' \
                                         enable-redis-lz4='yes'" \
-       redis \
+       redis-6.0.2 \
     && pecl install --configureoptions "enable-mongodb-developer-flags='no' enable-mongodb-coverage='no' \
                                         with-mongodb-system-libs='no' with-mongodb-client-side-encryption='auto' \
                                         with-mongodb-snappy='auto' with-mongodb-zlib='auto' with-mongodb-zstd='auto' \
