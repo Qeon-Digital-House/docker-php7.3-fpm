@@ -182,6 +182,10 @@ Don't forget to adjust environment variables and image names before running `doc
 #### RDKafka PHP Extension
 - No PHP 7.3+ support dropped yet.
 
+#### Swoole PHP Extension
+- [`swoole-6.0.0`][10] drops PHP 8.0 support. PHP 8.0 uses `swoole-5.1.6`
+
+
 [1]: https://getcomposer.org/
 [2]: https://github.com/etcd-io/etcd/tree/master/etcdctl
 [3]: https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
@@ -191,3 +195,4 @@ Don't forget to adjust environment variables and image names before running `doc
 [7]: https://github.com/mongodb/mongo-php-driver/releases/tag/2.0.0
 [8]: https://github.com/mongodb/mongo-php-driver/releases/tag/1.17.0
 [9]: https://github.com/phpredis/phpredis/releases/tag/6.1.0
+[10]: https://github.com/swoole/swoole-src/releases/tag/v6.0.0
