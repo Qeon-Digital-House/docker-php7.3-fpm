@@ -171,9 +171,23 @@ docker run \
 
 Don't forget to adjust environment variables and image names before running `docker run`.
 
+### Notes:
+#### MongoDB PHP Extension
+- [`mongodb-2.0`][7] requires PHP 8.1+. PHP <= 8.0 uses `mongodb-1.20.1`.
+- [`mongodb-1.17.0`][8] drops PHP 7.3 support. PHP 7.3 uses `mongodb-1.16.2`.
+
+#### Redis PHP Extension
+- [`redis-6.1.0`][9] requires PHP 7.4+. PHP 7.3 uses `redis-6.0.2`.
+
+#### RDKafka PHP Extension
+- No PHP 7.3+ support dropped yet.
+
 [1]: https://getcomposer.org/
 [2]: https://github.com/etcd-io/etcd/tree/master/etcdctl
 [3]: https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
 [4]: https://docs.github.com/en/get-started/learning-about-github/types-of-github-accounts#personal-accounts
 [5]: https://github.com/Qeon-Digital-House/docker-php7.3-fpm/actions
 [6]: https://github.com/Qeon-Digital-House/docker-php7.3-fpm/releases
+[7]: https://github.com/mongodb/mongo-php-driver/releases/tag/2.0.0
+[8]: https://github.com/mongodb/mongo-php-driver/releases/tag/1.17.0
+[9]: https://github.com/phpredis/phpredis/releases/tag/6.1.0
