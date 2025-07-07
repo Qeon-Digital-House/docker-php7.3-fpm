@@ -32,7 +32,7 @@ RUN apt-get update \
                                         with-mongodb-sasl='auto' with-mongodb-ssl='auto' \
                                         enable-mongodb-crypto-system-profile='no' enable-system-ciphers='no' \
                                         with-mongodb-utf8proc='bundled'" \
-        mongodb \
+        mongodb-1.21.1 \
     && pecl install --configureoptions "with-rdkafka='yes'" rdkafka
 
 RUN docker-php-ext-enable bcmath calendar bz2 exif \
