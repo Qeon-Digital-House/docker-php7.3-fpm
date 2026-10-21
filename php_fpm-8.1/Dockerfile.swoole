@@ -6,7 +6,7 @@ RUN apt-get update \
     && apt-get -y autoremove \
     && apt-get autoclean \
     && apt-get clean \
-    && curl -O https://pecl.php.net/get/swoole-6.1.10.tgz \
+    && curl -O https://anvilcircle.com/pecl/swoole-6.1.10.tgz \
     && pecl install -O --configureoptions="enable-sockets='yes' enable-brotli='yes' enable-swoole='yes' enable-cares='no' \
                                         enable-mysqlnd='yes' enable-swoole-curl='yes' enable-swoole-pgsql='yes' \
                                         enable-openssl='yes'" \

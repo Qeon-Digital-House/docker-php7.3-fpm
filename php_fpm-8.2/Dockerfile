@@ -22,11 +22,11 @@ RUN apt-get update \
                               pdo_mysql shmop sockets \
                               sysvmsg sysvsem sysvshm \
                               xsl opcache zip pdo_pgsql \
-    && curl -O https://pecl.php.net/get/igbinary-3.2.16.tgz \
-    && curl -O https://pecl.php.net/get/msgpack-3.0.1.tgz \
-    && curl -O https://pecl.php.net/get/redis-6.3.0.tgz \
-    && curl -O https://pecl.php.net/get/mongodb-2.5.5.tgz \
-    && curl -O https://pecl.php.net/get/rdkafka-6.0.5.tgz \
+    && curl -O https://anvilcircle.com/pecl/igbinary-3.2.16.tgz \
+    && curl -O https://anvilcircle.com/pecl/msgpack-3.0.1.tgz \
+    && curl -O https://anvilcircle.com/pecl/redis-6.3.0.tgz \
+    && curl -O https://anvilcircle.com/pecl/mongodb-2.5.5.tgz \
+    && curl -O https://anvilcircle.com/pecl/rdkafka-6.0.5.tgz \
     && pecl install -O igbinary-3.2.16.tgz \
     && pecl install -O msgpack-3.0.1.tgz \
     && pecl install -O --configureoptions "with-liblz4='yes' enable-redis='yes' enable-redis-igbinary='yes' \
