@@ -15,6 +15,7 @@ RUN apt-get update \
     && apt-get -y autoremove \
     && apt-get autoclean \
     && apt-get clean \
+    && pecl update-channels \
     && docker-php-ext-configure gd --with-webp --with-jpeg --with-freetype \
     && docker-php-ext-install bcmath calendar bz2 exif \
                               gd gettext gmp intl pcntl \
