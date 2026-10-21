@@ -24,19 +24,24 @@ RUN sed -Ei 's/(deb|security)\./archive\./g' /etc/apt/sources.list \
                               sysvmsg sysvsem sysvshm \
                               xsl opcache zip pdo_pgsql \
     && pecl install igbinary \
-    && curl -O https://pecl.php.net/get/msgpack-3.0.1.tgz && pecl install msgpack-3.0.1.tgz \
+    && curl -O https://pecl.php.net/get/msgpack-3.0.1.tgz \
+    && curl -O https://pecl.php.net/get/redis-6.3.0.tgz \
+    && curl -O https://pecl.php.net/get/mongodb-1.20.1.tgz \
+    && curl -O https://pecl.php.net/get/rdkafka-6.0.5.tgz \
+    && pecl install msgpack-3.0.1.tgz \
     && pecl install --configureoptions "with-liblz4='yes' enable-redis='yes' enable-redis-igbinary='yes' \
                                         enable-redis-msgpack='yes' enable-redis-lzf='yes' enable-redis-zstd='yes' \
                                         enable-redis-lz4='yes'" \
-       redis \
+       redis-6.3.0.tgz \
     && pecl install --configureoptions "enable-mongodb-developer-flags='no' enable-mongodb-coverage='no' \
                                         with-mongodb-system-libs='no' with-mongodb-client-side-encryption='auto' \
                                         with-mongodb-snappy='auto' with-mongodb-zlib='auto' with-mongodb-zstd='auto' \
                                         with-mongodb-sasl='auto' with-mongodb-ssl='auto' \
                                         enable-mongodb-crypto-system-profile='no' enable-system-ciphers='no' \
                                         with-mongodb-utf8proc='bundled'" \
-        mongodb-1.20.1 \
-    && pecl install --configureoptions "with-rdkafka='yes'" rdkafka
+        mongodb-1.20.1.tgz \
+    && pecl install --configureoptions "with-rdkafka='yes'" rdkafka-6.0.5.tgz \
+    && rm -f *.tgz
 
 RUN docker-php-ext-enable bcmath calendar bz2 exif \
                           gd gettext gmp intl pcntl \
