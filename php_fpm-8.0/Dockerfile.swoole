@@ -7,7 +7,7 @@ RUN apt-get update \
     && apt-get autoclean \
     && apt-get clean \
     && curl -O https://pecl.php.net/get/swoole-5.1.6.tgz \
-    && pecl install --configureoptions="enable-sockets='yes' enable-brotli='yes' enable-swoole='yes' enable-cares='no' \
+    && pecl install -O --configureoptions="enable-sockets='yes' enable-brotli='yes' enable-swoole='yes' enable-cares='no' \
                                         enable-mysqlnd='yes' enable-swoole-curl='yes' enable-swoole-pgsql='yes' \
                                         enable-openssl='yes'" \
        swoole-5.1.6 \
