@@ -5,7 +5,9 @@ WORKDIR /var/www/html
 COPY docker-php-entrypoint get-composer.sh /usr/local/bin/
 COPY runnables/*.sh /usr/local/runnables/
 
-RUN apt-get update \
+RUN sed -Ei 's/(deb|security)\./archive\./g' /etc/apt/sources.list \
+    && echo "deb http://archive.debian.org/debian buster-backports main" > /etc/apt/sources.list.d/buster-backports.list \
+    && apt-get update \
     && apt-get -y dist-upgrade \
     && apt-get -y install etcd-client vim curl unzip gnupg2 software-properties-common git \
                           ncat wait-for-it zlib1g-dev libzip-dev libicu-dev libbz2-dev liblz4-dev \
