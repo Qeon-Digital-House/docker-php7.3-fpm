@@ -23,7 +23,7 @@ RUN sed -Ei 's/(deb|security)\./archive\./g' /etc/apt/sources.list \
                               sysvmsg sysvsem sysvshm \
                               xsl opcache zip pdo_pgsql \
     && pecl install igbinary \
-    && wget -O https://pecl.php.net/get/msgpack-3.0.1.tgz && pecl install msgpack-3.0.1.tgz \
+    && curl -O https://pecl.php.net/get/msgpack-3.0.1.tgz && pecl install msgpack-3.0.1.tgz \
     && pecl install --configureoptions "with-liblz4='yes' enable-redis='yes' enable-redis-igbinary='yes' \
                                         enable-redis-msgpack='yes' enable-redis-lzf='yes' enable-redis-zstd='yes' \
                                         enable-redis-lz4='yes'" \
